@@ -1,3 +1,4 @@
+from typing import Optional
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import DateTime, func
 
@@ -13,4 +14,4 @@ class ExpenseModel(Base):
 
     name: Mapped[str]
     amount: Mapped[float]
-    comment: Mapped[str]
+    comment: Mapped[str] = mapped_column(nullable=True)

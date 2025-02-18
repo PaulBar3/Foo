@@ -1,7 +1,7 @@
 from fastapi import HTTPException
-from app.database import new_session
-from app.models import ExpenseModel
-from app.schemas import ExpenseAddSchema, ExpenseSchema, ExpenseUpdateSchema
+from database import new_session
+from models import ExpenseModel
+from schemas import ExpenseAddSchema, ExpenseSchema, ExpenseUpdateSchema
 from sqlalchemy import delete, select
 
 

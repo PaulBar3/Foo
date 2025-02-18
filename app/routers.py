@@ -1,7 +1,7 @@
 from typing import Annotated
 from fastapi import APIRouter, Depends
-from .repository import ExpenseRepository
-from .schemas import ExpenseSchema, ExpenseAddSchema, ExpenseUpdateSchema
+from repository import ExpenseRepository
+from schemas import ExpenseSchema, ExpenseAddSchema, ExpenseUpdateSchema
 
 
 router = APIRouter(prefix="/expenses", tags=["Расходы"])
@@ -26,7 +26,7 @@ async def get_expense_by_id(expense_id: int) -> ExpenseSchema:
 async def add_expense(
     expense:Annotated[ExpenseSchema, Depends(ExpenseAddSchema)]) -> dict:
     expense_id = await ExpenseRepository.add_expenses(expense)
-    return {"ok": 'Запись успешно добавлена', 'expense': expense}
+    return {'id': expense_id, "ok": 'Запись успешно добавлена', 'expense': expense, }
 
 
 @router.put("/{expense_id}")

@@ -4,15 +4,13 @@ from typing import Optional
 
 
 
-
 class ExpenseAddSchema(BaseModel):
     name: str = Field(min_length=1, max_length=100)
     amount: float = Field(gt=0)
-    comment: str | None 
+    comment: str 
     
 
     
-
 
 class ExpenseSchema(ExpenseAddSchema):
     id: int 
