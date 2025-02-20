@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
-from routers import router as expenses_router
+from app.routers import router as expenses_router
 from contextlib import asynccontextmanager
-from database import create_db
+from app.database import create_db
 
 
 

@@ -14,4 +14,4 @@ class ExpenseModel(Base):
 
     name: Mapped[str]
     amount: Mapped[float]
-    comment: Mapped[str] = mapped_column(nullable=True)
+    comment: Mapped[str]

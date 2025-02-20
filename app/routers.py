@@ -1,7 +1,8 @@
+
 from typing import Annotated
 from fastapi import APIRouter, Depends
-from repository import ExpenseRepository
-from schemas import ExpenseSchema, ExpenseAddSchema, ExpenseUpdateSchema
+from app.repository import ExpenseRepository
+from app.schemas import ExpenseSchema, ExpenseAddSchema, ExpenseUpdateSchema
 
 
 router = APIRouter(prefix="/expenses", tags=["Расходы"])
@@ -38,4 +39,5 @@ async def update_expense(
 
 @router.delete("/{expense_id}")
 async def delete_expense(expense_id: int) -> bool:
-    return await ExpenseRepository.delete_expense(expense_id)
+    expense = await ExpenseRepository.delete_expense(expense_id)
+    return expense
